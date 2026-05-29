@@ -9,58 +9,49 @@
 <body class="bg-slate-50 min-h-screen flex items-center justify-center p-4">
 
   <div id="login-section" class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-    <h2 class="text-2xl font-bold text-center text-slate-800 mb-6">Sasadomi 로그인</h2>
+    <div class="text-center mb-6">
+      <h2 class="text-2xl font-bold text-slate-800">Sasadomi</h2>
+      <p class="text-sm text-slate-400 mt-1">비공식 상벌점 조회 시스템</p>
+    </div>
     <form id="login-form" class="space-y-4">
       <div>
-        <label class="block text-sm font-medium text-slate-600 mb-1">학번</label>
-        <input type="text" id="studentId" placeholder="s2026010101" class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <label class="block text-sm font-medium text-slate-600 mb-1">학번 (11자리)</label>
+        <input type="text" id="studentId" placeholder="s2026010701" class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
       </div>
       <div>
-        <label class="block text-sm font-medium text-slate-600 mb-1">비밀번호</label>
+        <label class="block text-sm font-medium text-slate-600 mb-1">기숙사 시스템 비밀번호</label>
         <input type="password" id="studentPw" placeholder="••••••••" class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
       </div>
-      <div class="grid grid-cols-3 gap-2">
-        <div>
-          <label class="block text-sm font-medium text-slate-600 mb-1">학년</label>
-          <input type="number" id="grade" min="1" max="3" class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-600 mb-1">반</label>
-          <input type="number" id="sclass" min="1" max="12" class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-600 mb-1">번호</label>
-          <input type="number" id="number" min="1" max="40" class="w-full px-4 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-        </div>
-      </div>
-      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition duration-200 shadow-md">로그인 및 상벌점 조회</button>
+      <button type="submit" id="login-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition duration-200 shadow-md flex justify-center items-center">
+        로그인 및 상벌점 조회
+      </button>
     </form>
   </div>
 
   <div id="dashboard-section" class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-2xl hidden">
     <div class="flex justify-between items-center mb-6 border-b border-slate-100 pb-4">
       <div>
-        <h2 class="text-xl font-bold text-slate-800" id="user-info">홍길동 학생의 상벌점 현황</h2>
-        <p class="text-sm text-slate-400">사사도미 비공식 시스템</p>
+        <h2 class="text-xl font-bold text-slate-800" id="user-info">학생 상벌점 현황</h2>
+        <p class="text-sm text-slate-400">3분 간격 캐싱 적용 중</p>
       </div>
       <button id="logout-btn" class="text-sm bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1.5 rounded-lg transition">연동 해제</button>
     </div>
 
     <div class="grid grid-cols-2 gap-4 mb-6">
       <div class="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
-        <p class="text-sm font-medium text-green-600">누적 상점</p>
+        <p class="text-sm font-medium text-green-600">누적 상점 총점</p>
         <p class="text-3xl font-black text-green-700 mt-1" id="merit-score">0점</p>
       </div>
       <div class="bg-red-50 p-4 rounded-xl border border-red-100 text-center">
-        <p class="text-sm font-medium text-red-600">누적 벌점</p>
+        <p class="text-sm font-medium text-red-600">누적 벌점 총점</p>
         <p class="text-3xl font-black text-red-700 mt-1" id="demerit-score">0점</p>
       </div>
     </div>
 
-    <h3 class="text-md font-bold text-slate-700 mb-3">상세 히스토리</h3>
+    <h3 class="text-md font-bold text-slate-700 mb-3">상세 히스토리 (최근 부여 순)</h3>
     <div class="overflow-hidden border border-slate-100 rounded-xl">
-      <ul id="history-list" class="divide-y divide-slate-100 max-h-60 overflow-y-auto">
-        <li class="p-4 text-center text-slate-400 text-sm">기록이 없습니다.</li>
+      <ul id="history-list" class="divide-y divide-slate-100 max-h-80 overflow-y-auto">
+        <li class="p-4 text-center text-slate-400 text-sm">데이터를 불러오는 중입니다...</li>
       </ul>
     </div>
   </div>
