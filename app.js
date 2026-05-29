@@ -1,5 +1,5 @@
 const API_BASE_URL = 'https://sasadomi-system.vercel.app';
-const API_KEY = 'YOUR_SASADOMI_API_KEY'; 
+const API_KEY = 'sasa_dev_8e08868b29e84896f70078d2dd389878e21b04f7c83e349b'; 
 
 const loginSection = document.getElementById('login-section');
 const dashboardSection = document.getElementById('dashboard-section');
